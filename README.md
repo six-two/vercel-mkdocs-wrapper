@@ -2,6 +2,9 @@
 
 This repo allows quickly hosting a folder of markdown notes online.
 It has been designed for [vercel](https://vercel.com/), but will probably also work well for other hosting providers.
+It uses the [mkdocs](https://www.mkdocs.org/) static site generator, which has some nice features such as a search function.
+
+For an example page using this project see [linux.notes.six-two.dev](https://linux.notes.six-two.dev/)
 
 ## Setup
 
@@ -17,6 +20,13 @@ It has been designed for [vercel](https://vercel.com/), but will probably also w
 7. Optional: Add a custom domain (`Settings` -> `Domains`)
 
 If you have multiple markdown folders / repos, you can repeat the steps above (except for the first one) for each folder.
+
+## Update an existing site
+
+To update an existing site, you can either redeploy your vercel project manually, or push a commit on your fork of the template.
+Your site will *NOT* automatically be updated, when you push a commit your notes folder.
+If you want that behavior, you should instead create a mkdocs project out of your repo and create a vercel project for that.
+This repo just helps you host a plain folder of markdown files.
 
 ## How it works
 
