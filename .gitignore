@@ -1,0 +1,8 @@
+# Build output
+public/
+
+# Source of the documentation (cloned from a remote repository)
+docs/
+
+# mkdocs config file (since it is generated from a template)
+mkdocs.yml
