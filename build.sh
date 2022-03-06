@@ -27,7 +27,7 @@ REPO=${1:-$REPO}
 echo "Using docs repo: ${REPO}"
 
 # Install the static site generator and the theme
-pip install mkdocs mkdocs-material mkdocs-minify-plugin
+pip install mkdocs mkdocs-material mkdocs-minify-plugin mkdocs-autolinks-plugin
 
 # Download the document repo to the docs folder
 git clone "${REPO}" docs
