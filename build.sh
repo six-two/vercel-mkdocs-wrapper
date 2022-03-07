@@ -14,7 +14,7 @@ rm -rf docs public mkdocs.yml
 # Determine the repos name:
 NAME=${2:-$DOCS_NAME}
 NAME=${NAME:-My Documents}
-echo "Using website name: $NAME"
+echo "[build.sh] Using website name: $NAME"
 
 # Create the mkdocs.yml by replacing the name placeholder with the user supplied value
 sed "s/<NAME>/$NAME/" mkdocs-template.yml > mkdocs.yml
@@ -23,14 +23,20 @@ sed "s/<NAME>/$NAME/" mkdocs-template.yml > mkdocs.yml
 # Preference order: Command line argument, environment variable, my hardcoded demo page URL
 REPO=${DOCS_REPO:-https://github.com/six-two/notes-demo-page}
 REPO=${1:-$REPO}
-# Output for debugging purposes
-echo "Using docs repo: ${REPO}"
 
 # Install the static site generator and the theme
 pip install mkdocs mkdocs-material mkdocs-minify-plugin mkdocs-autolinks-plugin
 
-# Download the document repo to the docs folder
-git clone "${REPO}" docs
+if [[ -d "${REPO}" ]]; then
+  # allows using a local folder for more flexible use (and for easy local testing)
+  echo "[build.sh] Using docs folder: ${REPO}"
+  # Copy the folder to use it as the docs folder
+  cp -r "${REPO}" docs
+else
+  echo "[build.sh] Using docs repo: ${REPO}"
+  # Download the document repo to the docs folder
+  git clone "${REPO}" docs
+fi
 
 # Delete the README.md file, since it often contains unnecessary stuff, such as installation instructions.
 # If you want an index page, create a file called 'index.md' instead.
