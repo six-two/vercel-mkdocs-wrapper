@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "build": "./build.sh",
-    "serve": "./build.sh && mkdocs serve"
+    "serve": "./build.sh && python -m http.server --directory public"
   }
 }

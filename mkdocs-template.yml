@@ -18,17 +18,31 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
+  features:
+    # For explanations see https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+    - navigation.tracking
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.expand
+    - navigation.indexes
+    # - navigation.instant
 plugins:
+  # Allows adding tags to pages
+  - tags:
+      tags_file: tags.md
   # The search plugin enables you to search your documents
   - search
-  # Minifies your HTML pages and thus should make your pages load faster
-  - minify:
-      minify_html: true
   # Allows linking by just using a file name (like `page.md`) instead of supplying a full path (like `../other/folder/page.md`).
   # This way links are less likely to break when you move files around
   - autolinks
+  # Minifies your HTML pages and thus should make your pages load faster
+  - minify:
+      minify_html: true
 
 markdown_extensions:
+  # Allows page specific configurations (like hiding certain elements, setting the title, etc)
+  - meta
+  # Stuff for code blocks
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
