@@ -4,7 +4,6 @@ This repo allows quickly hosting a folder of markdown notes online.
 It has been designed for [vercel](https://vercel.com/), but will probably also work well for other hosting providers.
 It uses the [mkdocs](https://www.mkdocs.org/) static site generator, which has some nice features such as a search function.
 
-For an example page using this project see [linux.notes.six-two.dev](https://linux.notes.six-two.dev/)
 
 ## Setup
 
